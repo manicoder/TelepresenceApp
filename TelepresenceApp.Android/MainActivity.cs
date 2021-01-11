@@ -1,11 +1,12 @@
-﻿using System;
-
+﻿using System; 
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Xamarin.Forms.OpenTok.Android.Service;
+using Plugin.CurrentActivity;
 
 namespace TelepresenceApp.Droid
 {
@@ -16,8 +17,9 @@ namespace TelepresenceApp.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
+            PlatformOpenTokService.Init();
             base.OnCreate(savedInstanceState);
+            CrossCurrentActivity.Current.Activity = this;
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
