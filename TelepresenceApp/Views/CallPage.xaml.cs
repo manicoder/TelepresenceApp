@@ -21,33 +21,47 @@ namespace TelepresenceApp.Views
             CrossOpenTok.Current.MessageReceived += OnMessageReceived;
         }
 
+        #region Calling
         private void OnEndCall(object sender, EventArgs e)
         {
-            CrossOpenTok.Current.EndSession();
-            CrossOpenTok.Current.MessageReceived -= OnMessageReceived;
-            Navigation.PopAsync();
+            App.Current.MainPage.DisplayAlert("hello", " msg", "OK");
+            //CrossOpenTok.Current.EndSession();
+            //CrossOpenTok.Current.MessageReceived -= OnMessageReceived;
+            //Navigation.PopAsync();
         }
+        #endregion
 
+        #region Messaging
         private void OnMessage(object sender, EventArgs e)
         {
             CrossOpenTok.Current.SendMessageAsync($"Path.GetRandomFileName: {Path.GetRandomFileName()}");
+            CrossOpenTok.Current.SendMessageAsync("Hello World");
+
         }
 
+        private void OnMessageReceived(string message)
+        {
+            DisplayAlert("Random message received", message, "OK");
+        }
+
+        #endregion
+
+        #region Camera functions
         private void OnSwapCamera(object sender, EventArgs e)
         {
             CrossOpenTok.Current.CycleCamera();
         }
+        private void PauseVideo()
+        {
+
+        }
+        #endregion
 
         void OnShareScreen(object sender, EventArgs e)
         {
             CrossOpenTok.Current.PublisherVideoType = CrossOpenTok.Current.PublisherVideoType == OpenTokPublisherVideoType.Camera
                 ? OpenTokPublisherVideoType.Screen
                 : OpenTokPublisherVideoType.Camera;
-        }
-
-        private void OnMessageReceived(string message)
-        {
-            DisplayAlert("Random message received", message, "OK");
         }
 
         private bool _isRendererSet;
