@@ -10,6 +10,7 @@ namespace TelepresenceApp.Utils
     {
         public static string CallerUserId { get; set; }
         public static string MyUserId { get; set; }
+        //public static string RecieverId { get; set; } 
         public static string SessionId { get; set; }
         public static string TokenId { get; set; }
         public async static void Init()

@@ -37,9 +37,13 @@ namespace TelepresenceApp
             if (AppUtility.MyUserId == AppUtility.CallerUserId)
             {
                 var action = await DisplayActionSheet(AppUtility.CallerUserId + " Want to connect", "Cancel", null, "Yes");
-                if (action)
+                if (action == "Yes")
                 {
-
+                    if (!AppUtility.StartSession())
+                    {
+                        return;
+                    }
+                   await Navigation.PushAsync(new CallPage());
                 }
             }
         }
@@ -52,11 +56,7 @@ namespace TelepresenceApp
                 AppUtility.MyUserId = txtMyUser.Text;
                 callButton.IsVisible = true;
 
-                if (!AppUtility.StartSession())
-                {
-                    return;
-                }
-                Navigation.PushAsync(new CallPage());
+              
             }
         }
 
