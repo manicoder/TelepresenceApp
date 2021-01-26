@@ -5,31 +5,24 @@
              xmlns:tokService="clr-namespace:Xamarin.Forms.OpenTok.Service;assembly=Xamarin.Forms.OpenTok"
              x:Class="TelepresenceApp.Views.CallPage">
     <ContentPage.Content>
-        <StackLayout>
-            <tok:OpenTokPublisherView HeightRequest="200" />
-            <StackLayout BindableLayout.ItemsSource="{Binding Path=StreamIdCollection, Source={x:Static tokService:CrossOpenTok.Current}}">
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout BindableLayout.ItemsSource="{Binding Path=StreamIdCollection, Source={x:Static tokService:CrossOpenTok.Current}}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <tok:OpenTokSubscriberView HeightRequest="200" StreamId="{Binding .}"/>
+                        <tok:OpenTokSubscriberView StreamId="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </StackLayout>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="80" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
 
-                <Button Text="End Call" TextColor="Red" Grid.Row="0" Grid.Column="0" Clicked="OnEndCall" />
-                <Button Text="Message" TextColor="Black" Grid.Row="0" Grid.Column="1" Clicked="OnMessage" />
-                <!--<Button Text="Swap Camera" TextColor="Purple" Grid.Row="0" Grid.Column="2" Clicked="OnSwapCamera" />
-                <Button Text="Share" TextColor="Gold" Grid.Row="0" Grid.Column="3" Clicked="OnShareScreen" />-->
-            </Grid>
-        </StackLayout>
+            <Frame Padding="0" Margin="20" HorizontalOptions="End" VerticalOptions="Start">
+                <tok:OpenTokPublisherView HeightRequest="150" WidthRequest="100"/>
+            </Frame>
+            <StackLayout Spacing="30" Margin="20" HorizontalOptions="Center" VerticalOptions="End" Orientation="Horizontal">
+                <ImageButton Source="swap" Clicked="OnSwapCamera" HeightRequest="40" WidthRequest="40"/>
+                <ImageButton Source="call" Clicked="OnEndCall" HeightRequest="40" WidthRequest="40"/>
+                <!--<Button Text="Message" TextColor="Black" Grid.Row="0" Grid.Column="1" Clicked="OnMessage" />-->
+                <!--<Button Text="Share" TextColor="Gold" Grid.Row="0" Grid.Column="3" Clicked="OnShareScreen" />-->
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

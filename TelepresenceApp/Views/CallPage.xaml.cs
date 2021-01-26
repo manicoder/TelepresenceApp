@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using TelepresenceApp.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.OpenTok.Service;
 using Xamarin.Forms.Xaml;
@@ -18,16 +18,16 @@ namespace TelepresenceApp.Views
         public CallPage()
         {
             InitializeComponent();
+            this.Title = AppUtility.MyUserId;
             CrossOpenTok.Current.MessageReceived += OnMessageReceived;
         }
 
         #region Calling
         private void OnEndCall(object sender, EventArgs e)
         {
-            App.Current.MainPage.DisplayAlert("hello", " msg", "OK");
-            //CrossOpenTok.Current.EndSession();
-            //CrossOpenTok.Current.MessageReceived -= OnMessageReceived;
-            //Navigation.PopAsync();
+            CrossOpenTok.Current.EndSession();
+            CrossOpenTok.Current.MessageReceived -= OnMessageReceived;
+            Navigation.PopAsync();
         }
         #endregion
 
