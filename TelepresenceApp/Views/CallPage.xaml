@@ -5,7 +5,7 @@
              xmlns:tokService="clr-namespace:Xamarin.Forms.OpenTok.Service;assembly=Xamarin.Forms.OpenTok"
              x:Class="TelepresenceApp.Views.CallPage">
     <ContentPage.Content>
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Grid BackgroundColor="#fff" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <StackLayout BindableLayout.ItemsSource="{Binding Path=StreamIdCollection, Source={x:Static tokService:CrossOpenTok.Current}}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>

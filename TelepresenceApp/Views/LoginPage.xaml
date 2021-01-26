@@ -1,10 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TelepresenceApp.Views.LoginPage">
 
-    <StackLayout>
-        <Entry x:Name="txtUserId" Placeholder="Enter user Id"/>
-        <Entry x:Name="txtPassword" Placeholder="Enter password"/>
-        <Button Clicked="OnLoginClick" Text="Login"/>
-    </StackLayout>
+    <Grid BackgroundColor="#fff" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Image VerticalOptions="Start" HeightRequest="50" WidthRequest="50" Margin="80"/>
+        <StackLayout Padding="25" Spacing="20" VerticalOptions="Center">
+            <Frame Padding="15,5,15,5" BorderColor="CadetBlue" CornerRadius="30" HeightRequest="50" HasShadow="False">
+                <Entry x:Name="txtUserId" Placeholder="Enter user Id"/>
+            </Frame>
+
+            <Frame Padding="15,5,15,5" BorderColor="CadetBlue" CornerRadius="30" HeightRequest="50" HasShadow="False">
+                <Entry x:Name="txtPassword" Placeholder="Enter password"/>
+            </Frame>
+            <Button Clicked="OnLoginClick" Text="Login" HeightRequest="50" CornerRadius="25" Padding="0" Margin="0"/>
+        </StackLayout>
+    </Grid>
 
 </ContentPage>
