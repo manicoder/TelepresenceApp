@@ -6,10 +6,10 @@
              x:Class="TelepresenceApp.Views.CallPage">
     <ContentPage.Content>
         <Grid BackgroundColor="#fff" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <StackLayout BindableLayout.ItemsSource="{Binding Path=StreamIdCollection, Source={x:Static tokService:CrossOpenTok.Current}}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout SizeChanged="StackLayout_SizeChanged" BindableLayout.ItemsSource="{Binding Path=StreamIdCollection, Source={x:Static tokService:CrossOpenTok.Current}}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <tok:OpenTokSubscriberView StreamId="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                        <tok:OpenTokSubscriberView SizeChanged="OpenTokSubscriberView_SizeChanged" StreamId="{Binding .}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </StackLayout>

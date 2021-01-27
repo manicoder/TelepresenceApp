@@ -83,13 +83,15 @@ namespace TelepresenceApp.Views
         }
         private void tryAgainClick(object sender, EventArgs e)
         {
-            var reciever = AppUtility.CallerUserId + "_" + AppUtility.MyUserId + "_New";
-            controlEventManager.SendRequestControlEvents(reciever);
+           // var reciever = AppUtility.CallerUserId + "_" + AppUtility.MyUserId + "_New";
+           // controlEventManager.SendRequestControlEvents(reciever);
+            Navigation.PopAsync();
         }
         private void abortConnection(object sender, EventArgs e)
         {
             callerPanel.IsVisible = true;
             connectionPanel.IsVisible = false;
+            Navigation.PopAsync();
         }
     }
 }

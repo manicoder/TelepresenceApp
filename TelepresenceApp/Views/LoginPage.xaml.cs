@@ -17,12 +17,13 @@ namespace TelepresenceApp.Views
             if (!string.IsNullOrEmpty(txtUserId.Text))
             {
                 AppUtility.MyUserId = txtUserId.Text;
-                  Navigation.PushAsync(new CallerPage());
+                Navigation.PushAsync(new HomePage());
             }
-            else {
+            else
+            {
                 this.DisplayAlert("Error", "Please enter Userid", "OK");
             }
-            
+
         }
     }
 }

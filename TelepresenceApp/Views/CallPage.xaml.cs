@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TelepresenceApp.Utils;
 using Xamarin.Forms;
+using Xamarin.Forms.OpenTok;
 using Xamarin.Forms.OpenTok.Service;
 using Xamarin.Forms.Xaml;
 
@@ -27,6 +28,7 @@ namespace TelepresenceApp.Views
         {
             CrossOpenTok.Current.EndSession();
             CrossOpenTok.Current.MessageReceived -= OnMessageReceived;
+            Navigation.PopAsync();
             Navigation.PopAsync();
         }
         #endregion
@@ -76,6 +78,16 @@ namespace TelepresenceApp.Views
                     OnEndCall(this, EventArgs.Empty);
                 }
             }
+        }
+
+        private void OpenTokSubscriberView_SizeChanged(object sender, EventArgs e)
+        {
+            var a = sender as OpenTokPublisherView;
+        }
+
+        private void StackLayout_SizeChanged(object sender, EventArgs e)
+        {
+            var b = sender as StackLayout;
         }
     }
 }
