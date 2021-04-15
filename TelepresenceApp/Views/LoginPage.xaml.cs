@@ -14,10 +14,11 @@ namespace TelepresenceApp.Views
 
         void OnLoginClick(System.Object sender, System.EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtUserId.Text))
+            if (string.IsNullOrEmpty(txtUserId.Text))
             {
                 AppUtility.MyUserId = txtUserId.Text;
-                Navigation.PushAsync(new HomePage());
+                AppUtility.CurrentAppType = CurrentAppTypeEnum.Partner;
+                App.Current.MainPage = new MainMasterDetailPage();
             }
             else
             {

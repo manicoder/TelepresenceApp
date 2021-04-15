@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TelepresenceApp.Views.LoginPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TelepresenceApp.Views.LoginPage" NavigationPage.HasNavigationBar="False">
 
     <Grid BackgroundColor="#fff" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <Image VerticalOptions="Start" HeightRequest="50" WidthRequest="50" Margin="80"/>
