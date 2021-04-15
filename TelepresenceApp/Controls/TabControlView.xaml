@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GCoreApp.Controls.TabControlView" BackgroundColor="{StaticResource PrimaryColor}">
+    <ContentView.Content> 
+            <Grid HeightRequest="50" Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+            <StackLayout Spacing="2">
+                <Image BackgroundColor="Transparent" HorizontalOptions="Center"
+                             Source="joystick" Aspect="AspectFit" HeightRequest="30" WidthRequest="30"/>
+                <Label x:Name="joystick" Style="{StaticResource TabLabelStyle}" Text="Joystick"/>
+                <Label x:Name="joystick1" Style="{StaticResource TitleBold}" HorizontalOptions="Center" TextColor="GhostWhite" FontSize="15" Text="Joystick"/>
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer CommandParameter="joystick" Tapped="TapGestureRecognizer_Tapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Spacing="2" Grid.Column="1">
+
+                <Image  HorizontalOptions="Center"
+                             Source="tab_pid_white" Aspect="AspectFit" HeightRequest="30" WidthRequest="30"/>
+                <Label x:Name="graph" Style="{StaticResource TabLabelStyle}" IsVisible="False"  Text="Graph"/>
+                <Label x:Name="graph1" Style="{StaticResource TitleBold}" HorizontalOptions="Center" TextColor="GhostWhite" FontSize="15" Text="Graph"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer CommandParameter="graph" Tapped="TapGestureRecognizer_Tapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Spacing="2" Grid.Column="2">
+                <Image BackgroundColor="Transparent" HorizontalOptions="Center"
+                             Source="tab_dtc_white" Aspect="AspectFit" HeightRequest="30" WidthRequest="30"/>
+                <Label x:Name="activity" Style="{StaticResource TabLabelStyle}" Text="Activity"/>
+                <Label x:Name="activity1" Style="{StaticResource TitleBold}" HorizontalOptions="Center" TextColor="GhostWhite" FontSize="15" Text="Activity"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer CommandParameter="activity" Tapped="TapGestureRecognizer_Tapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Spacing="2" Grid.Column="3">
+                <Image BackgroundColor="Transparent" HorizontalOptions="Center"
+                             Source="tab_charge_white" Aspect="AspectFit" HeightRequest="30" WidthRequest="30"/>
+                <Label x:Name="battery" Style="{StaticResource TabLabelStyle}" Text="Battery"/>
+                <Label x:Name="battery1" Style="{StaticResource TitleBold}" HorizontalOptions="Center" TextColor="GhostWhite" FontSize="15" Text="Battery"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer CommandParameter="battery" Tapped="TapGestureRecognizer_Tapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+
+            <StackLayout Spacing="2" Grid.Column="4">
+                <Image BackgroundColor="Transparent" HorizontalOptions="Center"
+                             Source="tab_setting_white" Aspect="AspectFit" HeightRequest="30" WidthRequest="30"/>
+                <Label x:Name="settings" Style="{StaticResource TabLabelStyle}" Text="Settings"/>
+                <Label x:Name="settings1" Style="{StaticResource TitleBold}" HorizontalOptions="Center" TextColor="GhostWhite" FontSize="15" Text="Settings"/>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer CommandParameter="settings" Tapped="TapGestureRecognizer_Tapped"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+ 
+
+            </Grid>
+        
+    </ContentView.Content>
+</ContentView>

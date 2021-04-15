@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TelepresenceApp.Views.MainMasterDetailPage"
+             xmlns:pages="clr-namespace:TelepresenceApp.Views">
+    <MasterDetailPage.Master>
+        <pages:MenuPage x:Name="MasterPage" BindingContext="{Binding .}" />
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <pages:RobotPage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

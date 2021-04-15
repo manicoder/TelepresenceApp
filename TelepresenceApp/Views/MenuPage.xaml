@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TelepresenceApp.Views.MenuPage"
+             Title="Menu" BackgroundColor="#ffffff" NavigationPage.HasNavigationBar="False">
+    <StackLayout  Spacing="0">
+        <StackLayout Padding="0,50,0,20" Spacing="20" BackgroundColor="{StaticResource PrimaryColor}">
+            <Frame HeightRequest="150" WidthRequest="150" 
+                           HorizontalOptions="Center" BackgroundColor="Transparent"
+                           Padding="0" >
+                <Image Source="avatar" Aspect="AspectFit" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Frame>
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="{Binding MyUserId}" Style="{StaticResource TitleBoldWhite}" FontSize="20" HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding CurrentAppType}" Style="{StaticResource TitleNormalWhite}" FontSize="18" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </StackLayout>
+        <ListView x:Name="listView" ItemTapped="ListView_ItemTapped" Margin="20,0,0,20" HasUnevenRows="True" SelectionMode="None" ItemsSource="{Binding Items}"
+                       HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid HorizontalOptions="FillAndExpand" Padding="0,14,0,14" Grid.Row="1" VerticalOptions="Start">
+                            <Label Style="{StaticResource TitleNormal}" FontSize="18 " Text="{Binding}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout HorizontalOptions="Center" VerticalOptions="End" Padding="20">
+            <Label VerticalOptions="End" FontSize="14" Text="Version:1.0.1" FontFamily="FontRegular"  HorizontalOptions="Center"/>
+
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
